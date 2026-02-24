@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estado Oficial de Fan — Gloria Trevi</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body{
+background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+color:#fff;
+font-family:'Poppins',sans-serif;
+}
+
+h1,h2,h3{
+font-family:'Playfair Display',serif;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+border-radius:20px;
+padding:30px;
+}
+
+.profile{
+width:180px;height:180px;
+border-radius:50%;
+border:4px solid #f77f00;
+object-fit:cover;
+box-shadow:0 0 25px rgba(247,127,0,.5);
+}
+
+.badge{
+display:inline-block;
+padding:8px 16px;
+border-radius:50px;
+background:linear-gradient(135deg,#ffd60a,#f77f00);
+color:#000;
+font-weight:600;
+font-size:12px;
+}
+
+.menu-btn{
+font-size:28px;
+cursor:pointer;
+z-index:10000;
+position:relative;
+}
+
+/* FIXED DROPDOWN — ALWAYS ON TOP */
+.dropdown{
+display:none;
+position:fixed;
+right:20px;
+top:70px;
+background:rgba(20,20,40,.98);
+backdrop-filter:blur(14px);
+border-radius:12px;
+padding:10px;
+box-shadow:0 15px 40px rgba(0,0,0,.6);
+z-index:99999;
+}
+
+.dropdown button{
+display:block;
+padding:8px 14px;
+border-radius:8px;
+width:100%;
+text-align:left;
+}
+
+.dropdown button:hover{
+background:rgba(255,255,255,.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="max-w-5xl mx-auto p-6 space-y-10 relative">
+
+<!-- HEADER -->
+<div class="flex justify-between items-center">
+
+<h1 class="text-3xl font-bold">🎤 Gloria Trevi Oficial</h1>
+
+<!-- MENU WRAPPER WITH HIGH Z -->
+<div class="relative z-50">
+
+<span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+<div id="menu" class="dropdown">
+<button onclick="setLang('es')">Español</button>
+<button onclick="setLang('en')">English</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- PROFILE -->
+<div class="card grid md:grid-cols-2 gap-8 items-center">
+
+<div class="flex justify-center">
+<img src="https://i.ibb.co/7N2WZJVb/IMG-20260224-WA0038.jpg"
+class="profile"
+alt="Luisa Yuliana Vegas">
+</div>
+
+<div class="space-y-4">
+
+<div id="fanStatus" class="badge">Aprobación pendiente</div>
+
+<h2 id="fanName" class="text-4xl font-bold">
+Luisa Yuliana Vegas
+</h2>
+
+<p id="fanDesc" class="text-gray-300">
+Fan oficial de Gloria Trevi
+</p>
+
+</div>
+</div>
+
+<!-- PACKAGE -->
+<div class="card grid md:grid-cols-2 gap-8 items-center">
+
+<div class="flex justify-center order-2 md:order-1">
+<img src="https://i.ibb.co/ycqY3LLB/IMG-20260224-WA0055.jpg"
+class="rounded-xl shadow-xl w-full max-w-md h-80 object-cover">
+</div>
+
+<div class="order-1 md:order-2 space-y-4">
+
+<h3 id="pkgTitle" class="text-3xl font-bold">
+Paquete VIP para Fans
+</h3>
+
+<p id="pkgDesc" class="text-gray-300">
+La imagen muestra el paquete exclusivo que será entregado a su domicilio
+después de completar el pago.
+</p>
+
+<p id="pkgIncludes">
+Incluye artículos oficiales, contenido exclusivo y regalos especiales.
+</p>
+
+<div class="text-4xl font-bold text-orange-400">
+$100 <span class="text-sm text-gray-400">pago único</span>
+</div>
+
+</div>
+</div>
+
+<footer class="text-center text-gray-400 text-sm pt-6">
+© 2026 Gloria Trevi Oficial — Todos los derechos reservados
+</footer>
+
+</div>
+
+<script>
+function toggleMenu(){
+const m = document.getElementById("menu");
+m.style.display = m.style.display==="block"?"none":"block";
+}
+
+function setLang(lang){
+
+if(lang==="en"){
+
+fanStatus.textContent="Pending approval";
+fanDesc.textContent="Official fan of Gloria Trevi";
+
+pkgTitle.textContent="VIP Fan Package";
+pkgDesc.textContent=
+"The image shows the exclusive package that will be delivered to your address after payment.";
+pkgIncludes.textContent=
+"Includes official merchandise, exclusive content, and special gifts.";
+
+}else{
+
+fanStatus.textContent="Aprobación pendiente";
+fanDesc.textContent="Fan oficial de Gloria Trevi";
+
+pkgTitle.textContent="Paquete VIP para Fans";
+pkgDesc.textContent=
+"La imagen muestra el paquete exclusivo que será entregado a su domicilio después de completar el pago.";
+pkgIncludes.textContent=
+"Incluye artículos oficiales, contenido exclusivo y regalos especiales.";
+}
+
+toggleMenu();
+}
+</script>
+
+</body>
+</html>
